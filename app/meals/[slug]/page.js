@@ -3,10 +3,15 @@ import Link from "next/link"
 import classes from './page.module.css'
 import Image from "next/image"
 import { getMeal } from "@/lib/meals"
+import { notFound } from "next/navigation"
 
 const MealPage = async ({ params}) => {
     const { slug } = await params
     const meal = await getMeal(slug)
+
+    if (!meal) {
+        notFound()
+    }
 
     meal.instructions = meal.instructions.replace(/\n/g, '<br />')
 
@@ -14,7 +19,7 @@ const MealPage = async ({ params}) => {
         <>
             <header className={classes.header}>
                 <div className={classes.image}>
-                    <Image src={meal.image} fill />
+                    <Image src={meal.image} fill alt={meal.title} />
                 </div>
                 <div className={classes.headerText}>
                     <h1>{meal.title}</h1>
