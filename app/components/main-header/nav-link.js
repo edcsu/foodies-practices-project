@@ -11,7 +11,7 @@ function NavLink({href, children}) {
         <>
             <Link 
                 href={href}
-                className={path.startsWith(href) ? classes.active: undefined} 
+                className={path.startsWith(href) ? `${classes.link} ${classes.active}` : classes.link} 
             >
                 {children}
             </Link>
