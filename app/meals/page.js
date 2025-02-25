@@ -1,28 +1,22 @@
 import Link from "next/link"
 
+import classes from './page.module.css'
 const MealsPage = () => {
     return (
         <>
-            <main>
-                <h1> Meals page</h1>
-                <p>
-                    <Link href="/meals/share">Share</Link>
+            <header className={classes.header}>
+                <h1> 
+                    Delicious meals, created{' '}
+                    <span className={classes.highlight}> by you</span>
+                </h1>
+                <p>Chooose youfav recipe. Its easy and fun</p>
+                <p className={classes.cta}>
+                    <Link href="/meals/share">
+                        Share your fav recipe
+                    </Link>
                 </p>
-                <p>
-                    <Link href="/community">community</Link>
-                </p>
-                <p>
-                    <Link href="/meals/meal-1">Meal 1</Link>
-                </p>
-                <p>
-                    <Link href="/meals/meal-2">Meal 2</Link>
-                </p>
-                <p>
-                    <Link href="/meals/meal-3">Meal 3</Link>
-                </p>
-                <p>
-                    <Link href="/meals/meal-4">Meal 4</Link>
-                </p>
+            </header>
+            <main className={classes.main}>
             </main>
         </>
     )
